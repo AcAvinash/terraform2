@@ -6,7 +6,16 @@ terraform {
       version = "~> 5.0"
     }
   }
+ backend "s3" {
+    bucket = "myroboshop-remote"
+    key    = "DynamicBlock-demo"
+    region = "us-east-1"
+    dynamodb_table = "roboshop-locking"
+  }
+
 }
+
+
 
 # Configure the AWS Provider
 provider "aws" {
